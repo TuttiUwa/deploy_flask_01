@@ -17,7 +17,7 @@ dataset['experience'].fillna(0, inplace=True)
 dataset['test_score'].fillna(dataset['test_score'].mean(), inplace=True)
 
 # now specify the Input features for training 
-X = dataset.iloc[0:4]
+X = dataset.iloc[:,0:2]
 
 # Now some features are string/text, we need to convert them to number
 #Converting words to integer values
@@ -28,7 +28,7 @@ def convert_to_int(word):
 
 X['experience'] = X['experience'].apply(lambda x : convert_to_int(x))
 
-y = dataset.iloc[0:4]
+y = dataset.iloc[:,3]
 
 #Splitting Training and Test Set
 #Since we have a very small dataset, we will train our model with all availabe data.
